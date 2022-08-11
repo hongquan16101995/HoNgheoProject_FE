@@ -39,9 +39,21 @@ export class LoginComponent implements OnInit {
   login() {
     this.accountService.login(this.loginForm.value).pipe(first())
       .subscribe(
-        () => {
-          this.router.navigate([this.returnUrl]).finally(() => {
-          });
+        (user) => {
+          const roleList = user.authorities;
+          let hasRoleAdmin = false;
+          for (const role of roleList) {
+            if (role.authority === 'ROLE_ADMIN') {
+              hasRoleAdmin = true;
+              break;
+            }
+          }
+          if (hasRoleAdmin) {
+            this.router.navigateByUrl('/backyard');
+          } else {
+            this.router.navigate([this.returnUrl]).finally(() => {
+            });
+          }
         },
         () => {
           this.sweetalertService.showNotification(ICON_ERROR, 'Lỗi', 'Tài khoản hoặc mật khẩu không đúng!');
