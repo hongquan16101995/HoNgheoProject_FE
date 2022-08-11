@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {RegisterComponent} from './register/register.component';
 import {LayoutComponent} from './layout/layout.component';
+import {LoginComponent} from './login/login.component';
+
 
 const routes: Routes = [
   {
@@ -8,12 +11,12 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: '',
-        loadChildren: () => import('./dashboard/dashboard.module').then(module => module.DashboardModule)
+        path: 'register',
+        component: RegisterComponent
       },
       {
-        path: 'role',
-        loadChildren: () => import('./role/role.module').then(module => module.RoleModule)
+        path: 'login',
+        component: LoginComponent
       }
     ]
   }
@@ -23,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AccountRoutingModule { }

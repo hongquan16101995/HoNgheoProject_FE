@@ -37,18 +37,18 @@ Project:	Crypto Admin - Responsive Admin Template
 -------------------------------------------------------------------*/
 
 
-/******************* 
-import icon and fonts Styles 
+/*******************
+import icon and fonts Styles
 *******************/
-@import url(../../assets/vendor_components/font-awesome/css/font-awesome.css);
-@import url(../../assets/vendor_components/Ionicons/css/ionicons.css);
-@import url(../../assets/vendor_components/themify-icons/themify-icons.css);
-@import url(../../assets/vendor_components/linea-icons/linea.css);
-@import url(../../assets/vendor_components/glyphicons/glyphicon.css);
-@import url(../../assets/vendor_components/flag-icon/css/flag-icon.css);
-@import url(../../assets/vendor_components/material-design-iconic-font/css/materialdesignicons.css);
-@import url(../../assets/vendor_components/simple-line-icons-master/css/simple-line-icons.css);
-@import url(../../assets/vendor_components/cryptocoins-master/webfont/cryptocoins.css);
+@import url(../vendor_components/font-awesome/css/font-awesome.css);
+@import url(../vendor_components/Ionicons/css/ionicons.css);
+@import url(../vendor_components/themify-icons/themify-icons.css);
+@import url(../vendor_components/linea-icons/linea.css);
+@import url(../vendor_components/glyphicons/glyphicon.css);
+@import url(../vendor_components/flag-icon/css/flag-icon.css);
+@import url(../vendor_components/material-design-iconic-font/css/materialdesignicons.css);
+@import url(../vendor_components/simple-line-icons-master/css/simple-line-icons.css);
+@import url(../vendor_components/cryptocoins-master/webfont/cryptocoins.css);
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 
 /*------------------------------------------------------------------
@@ -143,7 +143,7 @@ img {
     position: relative;
 }
 .layout-boxed {
-    background: url(../../images/boxed-bg.png) fixed;
+    background: url(../images/boxed-bg.png) fixed;
 }
 .content-wrapper, .main-footer {
     -webkit-transition: -webkit-transform .3s ease-in-out, margin .3s ease-in-out;
@@ -1052,13 +1052,13 @@ body .main-header .navbar .nav > li.search-box > a:hover, body .main-header .nav
     box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
     -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
     -moz-box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
-    border-color: rgba(120, 130, 140, .13);	
+    border-color: rgba(120, 130, 140, .13);
     display: inline-block;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
     -webkit-transform: scale(0);
     transform: scale(0);
-    transform-origin: right 0;	
+    transform-origin: right 0;
 }
 .show>.dropdown-menu.scale-up {
     transform: scale(1);
@@ -6215,7 +6215,7 @@ ul.flexbox {
   margin: 0 8px;
 }
 .media .nav-link:focus, .media .nav-link:hover {
-     background-color: transparent; 
+     background-color: transparent;
 }
 .media a:not(.btn):not(.avatar) {
   color: #616a78;
@@ -8191,8 +8191,8 @@ ul.flexbox {
 
 
 
-/*-----------------*/	
-	
+/*-----------------*/
+
 .box-comments {
     background: #f7f7f7;
 }
@@ -10865,7 +10865,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
     margin-right: 0;
 }
 .nav-tabs-custom>.nav-tabs.float-right>li:first-of-type>a {
-    border-left-width: 1px;	
+    border-left-width: 1px;
 }
 .nav-tabs-custom>.nav-tabs.float-right>li:first-of-type>a.active {
     border-left-color: #f4f4f4;
@@ -11700,7 +11700,7 @@ table.dataTable thead .sorting:after {
 }
 /*lockscreen*/
 .lockscreen {
-    background: url(../../images/login-register.jpg) center center no-repeat #d2d6de;
+    background: url(../images/login-register.jpg) center center no-repeat #d2d6de;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -11749,7 +11749,7 @@ table.dataTable thead .sorting:after {
     font-weight: 300;
 }
 .login-page, .register-page {
-    background: url(../../images/login-register.jpg) center center no-repeat #d2d6de;
+    background: url(../images/login-register.jpg) center center no-repeat #d2d6de;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -11879,7 +11879,7 @@ table.dataTable thead .sorting:after {
     margin: 0px auto 0;
     text-align: center;
     position: fixed;
-    background-image: url(../../images/bg-e.jpg);
+    background-image: url(../images/bg-e.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -13494,7 +13494,7 @@ animation: AnimationName 20s ease infinite;
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-@keyframes AnimationName { 
+@keyframes AnimationName {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
@@ -14102,7 +14102,7 @@ animation: AnimationName 20s ease infinite;
     flex-flow: row wrap;
     margin-right: -15px;
     margin-left: -15px;
-}	
+}
 .box-deck .box {
     display: -ms-flexbox;
     display: flex;
@@ -14113,7 +14113,7 @@ animation: AnimationName 20s ease infinite;
     margin-right: 15px;
     margin-bottom: 0;
     margin-left: 15px;
-}	
+}
 }
 .box-deck .box {
     margin-bottom: 20px;
@@ -14969,7 +14969,7 @@ table h1, table h2, table h3, table h4, table h5, table h6 {
 }
 
 
-/*---ico-progress---*/	
+/*---ico-progress---*/
 .new-progress-wrap{
 	min-width: 600px;
 }
@@ -15146,7 +15146,7 @@ table h1, table h2, table h3, table h4, table h5, table h6 {
 	height: 20px;
 	position:relative;
 	overflow:hidden;
-	
+
 	z-index:1; /* iOS safariで隙間が空くことへの対応 */
 }
 .waveHorizontal{
@@ -15159,7 +15159,7 @@ table h1, table h2, table h3, table h4, table h5, table h6 {
 	background-position:left bottom;
 	background-size:350px 100%;
 	transform-origin:0 100% 0;
-	
+
 	/* animation: move linear infinite; */
 	animation-name:move;
 	animation-timing-function:linear;
@@ -15169,12 +15169,12 @@ table h1, table h2, table h3, table h4, table h5, table h6 {
 #waveHorizontal1{
 	background-image:url(http://www.greenmarble.jp/wave1.svg);
 	animation-delay: -2s;
-	animation-duration: 12s;	
+	animation-duration: 12s;
 }
 #waveHorizontal2{
 	background-image:url(http://www.greenmarble.jp/wave2.svg);
 	animation-delay: -2s;
-	animation-duration: 5s;	
+	animation-duration: 5s;
 }
 #waveHorizontal3{
 	background-image:url(http://www.greenmarble.jp/wave3.svg);
