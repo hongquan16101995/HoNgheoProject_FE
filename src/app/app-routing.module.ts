@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: 'backyard',
     loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./account/account.module').then(module => module.AccountModule)
   }
 ];
 
