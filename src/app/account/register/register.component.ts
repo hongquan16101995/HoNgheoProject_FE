@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AccountService} from '../account.service';
 import {SweetalertService} from '../../shared/sweetalert/sweetalert.service';
-import {ICON_SUCCESS} from '../../shared/sweetalert/alert-const';
+import {ICON_ERROR, ICON_SUCCESS} from '../../shared/sweetalert/alert-const';
 import {Router} from '@angular/router';
 
 @Component({
@@ -45,8 +45,10 @@ export class RegisterComponent implements OnInit {
       this.accountService.register(this.signUpForm.value).subscribe(() => {
         this.signUpForm.reset();
         this.router.navigateByUrl("/login").then(() => {
-          this.sweetalertService.showNotification(ICON_SUCCESS, 'Register success!', 'Register new account successfully!');
+          this.sweetalertService.showNotification(ICON_SUCCESS, 'Thành công!', 'Đăng ký tài khoản thành công!');
         });
+      }, () => {
+        this.sweetalertService.showNotification(ICON_ERROR, 'Lỗi!', 'Xảy ra lỗi khi đăng ký!');
       });
     }
   }
