@@ -22,6 +22,10 @@ export class AccountService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
+  public get currentUserValue(): LoginResponse {
+    return this.currentUserSubject.value;
+  }
+
   register(signUp: SignUp): Observable<User> {
     return this.http.post<User>(`${API_URL}/api/register`, signUp);
   }
@@ -32,5 +36,9 @@ export class AccountService {
       this.currentUserSubject.next(user);
       return user;
     }));
+  }
+
+  logout() {
+    localStorage.removeItem('user');
   }
 }
