@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AccountService} from '../account.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SweetalertService} from '../../shared/sweetalert/sweetalert.service';
@@ -13,8 +13,8 @@ import {ICON_ERROR} from '../../shared/sweetalert/alert-const';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl(),
-    password: new FormControl()
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
   });
   returnUrl: string;
 
