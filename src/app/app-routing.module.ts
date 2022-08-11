@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {AdminAuthGuard} from './helper/admin-auth-guard';
+import {NotFoundComponent} from './shared/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./account/account.module').then(module => module.AccountModule)
+  },
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404'
   }
 ];
 
@@ -19,4 +28,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
