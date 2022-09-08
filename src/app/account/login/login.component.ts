@@ -55,8 +55,9 @@ export class LoginComponent implements OnInit {
             });
           }
         },
-        () => {
+      (error) => {
           this.sweetalertService.showNotification(ICON_ERROR, 'Lỗi', 'Tài khoản hoặc mật khẩu không đúng!');
+          console.log(error);
         });
   }
 }

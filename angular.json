@@ -121,5 +121,8 @@
         }
       }
     }},
-  "defaultProject": "ho-ngheo-project-fe"
+  "defaultProject": "ho-ngheo-project-fe",
+  "cli": {
+    "analytics": "0a4d5e18-03b6-41d1-9e02-958cb627ed61"
+  }
 }

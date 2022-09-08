@@ -8,6 +8,16 @@
 
     <form [formGroup]="signUpForm" (ngSubmit)="register()" class="form-element">
       <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Email" formControlName="email">
+        <span class="ion ion-email form-control-feedback "></span>
+        <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+          <p class="text-danger" *ngIf="email.errors?.required">Email không được để trống!</p>
+          <p class="text-danger" *ngIf="email.errors?.minlength">Email phải có ít nhất 6 ký tự</p>
+          <p class="text-danger" *ngIf="email.errors?.maxlength">Email tối đa 50 ký tự</p>
+          <p class="text-danger" *ngIf="email.errors?.email">Email sai định dạng</p>
+        </ng-container>
+      </div>
+      <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Tên đăng nhập" formControlName="username">
         <span class="ion ion-person form-control-feedback "></span>
         <ng-container *ngIf="username.invalid && (username.dirty || username.touched)">
@@ -35,6 +45,15 @@
           <p class="text-danger" *ngIf="confirmPassword.errors?.minlength">Mật khẩu nhập lại phải có ít nhất 6 ký tự</p>
           <p class="text-danger" *ngIf="confirmPassword.errors?.maxlength">Mật khẩu nhập lại tối đa 20 ký tự</p>
           <p class="text-danger" *ngIf="confirmPassword.errors?.confirmPassword">Mật khẩu nhập lại không đúng</p>
+        </ng-container>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+        <span class="ion ion-person form-control-feedback "></span>
+        <ng-container *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+          <p class="text-danger" *ngIf="phone.errors?.required">Số điện thoại không được để trống!</p>
+          <p class="text-danger" *ngIf="phone.errors?.minlength">Số điện thoại phải có đúng 10 ký tự</p>
+          <p class="text-danger" *ngIf="phone.errors?.maxlength">Số điện thoại phải có đúng 10 ký tự</p>
         </ng-container>
       </div>
       <div class="row">
