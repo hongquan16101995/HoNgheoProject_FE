@@ -130,33 +130,36 @@
 <!--          </ul>-->
 
           <div class="table-responsive">
-            <table class="table table-bordered no-margin">
+            <table class="table table-hover no-wrap">
               <thead>
-              <tr class="bg-pale-dark">
+              <tr class="">
                 <th>Chi tiết giao dịch</th>
                 <th>Loại thu chi</th>
                 <th>Số tiền</th>
                 <th>Thời gian</th>
-                <th></th>
+                <th colspan="2">Thêm</th>
               </tr>
               </thead>
               <tbody>
               <tr>
                 <td>
-                  <a href="#" class="text-info hover-info">
                     Piping Project
-                  </a>
                 </td>
                 <td>190 Days</td>
                 <td>$12,485,213</td>
                 <td>$11,485,213</td>
-                <td><span class="label label-success"><i class="fa fa-caret-up"></i> 9.99%</span></td>
+                <td style="text-align: right">
+                  <button type="button" class="btn btn-sm btn-danger-outline" data-toggle="tooltip"
+                          data-original-title="Delete"><i class="ti-trash" aria-hidden="true"></i></button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-info-outline" data-toggle="modal" data-target="#edit-wallet"
+                          data-original-title="Edit"><i class="ti-pencil" aria-hidden="true"></i></button>
+                </td>
               </tr>
               <tr>
                 <td>
-                  <a href="#" class="text-info hover-info">
                     Roofing Project
-                  </a>
                 </td>
                 <td>1500 Days</td>
                 <td>$125,485,213</td>
@@ -165,9 +168,7 @@
               </tr>
               <tr>
                 <td>
-                  <a href="#" class="text-info hover-info">
                     Floring Project
-                  </a>
                 </td>
                 <td>250 Days</td>
                 <td>$11,485,213</td>
@@ -176,9 +177,7 @@
               </tr>
               <tr>
                 <td>
-                  <a href="#" class="text-info hover-info">
                     Building Project
-                  </a>
                 </td>
                 <td>480 Days</td>
                 <td>$95,485,213</td>
@@ -187,9 +186,7 @@
               </tr>
               <tr>
                 <td>
-                  <a href="#" class="text-info hover-info">
                     Office Project
-                  </a>
                 </td>
                 <td>250 Days</td>
                 <td>$48,485,213</td>
@@ -198,6 +195,19 @@
               </tr>
 
               </tbody>
+              <tfoot>
+              <tr>
+                <td colspan="2">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-wallet">Thêm mới
+                  </button>
+                </td>
+                <td colspan="7">
+                  <div class="text-right">
+                    <ul class="pagination"></ul>
+                  </div>
+                </td>
+              </tr>
+              </tfoot>
             </table>
           </div>
         </div>
@@ -207,3 +217,26 @@
     </div>
   </div>
 </section>
+<div id="add-wallet" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">Thêm giao dịch</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-element">
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Tên"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Lưu</button>
+        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
