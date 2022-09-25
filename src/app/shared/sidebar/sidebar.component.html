@@ -10,10 +10,10 @@
         </a>
       </div>
       <div class="image">
-        <img src="assets/images/user2-160x160.jpg" class="rounded-circle" alt="User Image">
+        <img src="assets/images/avatar/demo.jpg" class="rounded-circle" alt="User Image">
       </div>
       <div class="info">
-        <p>NAL</p>
+        <p>{{user.name}}</p>
         <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i class="ion ion-gear-b"></i></a>
         <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ion ion-android-mail"></i></a>
         <a href="#" role="button" (click)="logout()" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ion ion-power"></i></a>
@@ -24,7 +24,7 @@
       <li class="nav-devider"></li>
       <li class="header nav-small-cap"></li>
       <li class="active">
-        <a href="/">
+        <a routerLink="/">
           <i class="icon-home"></i> <span>Giao dịch</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>

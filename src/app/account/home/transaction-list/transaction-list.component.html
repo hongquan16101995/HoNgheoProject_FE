@@ -107,27 +107,27 @@
         </div>
         <div class="box-body">
 
-<!--          <ul class="flexbox flex-justified text-center my-20">-->
-<!--            <li class="br-1">-->
-<!--              <div class="font-size-18">Chi tiết giao dịch</div>-->
-<!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 7.1%</h2>-->
-<!--            </li>-->
+          <!--          <ul class="flexbox flex-justified text-center my-20">-->
+          <!--            <li class="br-1">-->
+          <!--              <div class="font-size-18">Chi tiết giao dịch</div>-->
+          <!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 7.1%</h2>-->
+          <!--            </li>-->
 
-<!--            <li class="br-1">-->
-<!--              <div class="font-size-18">Loại giao dịch</div>-->
-<!--              <h2 class="text-danger"><i class="fa fa-caret-down"></i> -14.1%</h2>-->
-<!--            </li>-->
+          <!--            <li class="br-1">-->
+          <!--              <div class="font-size-18">Loại giao dịch</div>-->
+          <!--              <h2 class="text-danger"><i class="fa fa-caret-down"></i> -14.1%</h2>-->
+          <!--            </li>-->
 
-<!--            <li class="br-1">-->
-<!--              <div class="font-size-18">Receivablies</div>-->
-<!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 2.8%</h2>-->
-<!--            </li>-->
+          <!--            <li class="br-1">-->
+          <!--              <div class="font-size-18">Receivablies</div>-->
+          <!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 2.8%</h2>-->
+          <!--            </li>-->
 
-<!--            <li>-->
-<!--              <div class="font-size-18">Project Billing</div>-->
-<!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 97.1%</h2>-->
-<!--            </li>-->
-<!--          </ul>-->
+          <!--            <li>-->
+          <!--              <div class="font-size-18">Project Billing</div>-->
+          <!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 97.1%</h2>-->
+          <!--            </li>-->
+          <!--          </ul>-->
 
           <div class="table-responsive">
             <table class="table table-hover no-wrap">
@@ -141,20 +141,24 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
+              <tr *ngFor="let t of transactions;">
+                <td>{{t.description}}</td>
                 <td>
-                    Piping Project
+                  <span *ngFor="let c of t.categories;">{{c.name}} </span>
                 </td>
-                <td>190 Days</td>
-                <td>$12,485,213</td>
-                <td>$11,485,213</td>
+                <td>{{t.total}}</td>
+                <td>{{t.time}}</td>
                 <td style="text-align: center">
                   <button type="button" class="btn btn-sm btn-danger-outline" data-toggle="tooltip"
-                          data-original-title="Delete"><i class="ti-trash" aria-hidden="true"></i></button>
+                          (click)="displayConfirm(t.id)" data-original-title="Delete">
+                    <i class="ti-trash" aria-hidden="true"></i>
+                  </button>
                 </td>
                 <td style="text-align: center">
-                  <button type="button" class="btn btn-sm btn-info-outline" data-toggle="modal" data-target="#edit-wallet"
-                          data-original-title="Edit"><i class="ti-pencil" aria-hidden="true"></i></button>
+                  <button type="button" class="btn btn-sm btn-info-outline" data-toggle="modal"
+                          data-target="#update-wallet"
+                          (click)="displayUpdate(t.id)" data-original-title="Edit">
+                    <i class="ti-pencil" aria-hidden="true"></i></button>
                 </td>
               </tr>
               </tbody>
@@ -189,15 +193,79 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal form-element">
+        <form class="form-horizontal form-element" [formGroup]="formTransaction">
           <div class="col-md-12 m-b-20">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Tên"></div>
+              <input type="text" class="form-control" formControlName="description" placeholder="Mô tả"></div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="total" placeholder="Số tiền"></div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <select class="form-control" formControlName="category">
+                <option value="">-- Loại giao dịch --</option>
+                <option *ngFor="let c of categories" value="{{c.id}}">{{c.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <select class="form-control" formControlName="wallet">
+                <option value="">-- Ví tiền --</option>
+                <option *ngFor="let w of wallets" value="{{w.id}}">{{w.name}}</option>
+              </select>
+            </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal">Lưu</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal" (click)="create()">Lưu</button>
+        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--update form-->
+<div id="update-wallet" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">Chỉnh sửa giao dịch</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-element" [formGroup]="formTransaction">
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="description" placeholder="Mô tả"></div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="total" placeholder="Số tiền"></div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <select class="form-control" formControlName="category">
+                <option value="">-- Loại giao dịch --</option>
+                <option *ngFor="let c of categories" value="{{c.id}}">{{c.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <select class="form-control" formControlName="wallet">
+                <option value="">-- Ví tiền --</option>
+                <option *ngFor="let w of wallets" value="{{w.id}}">{{w.name}}</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal" (click)="update()">Lưu</button>
         <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
       </div>
     </div>

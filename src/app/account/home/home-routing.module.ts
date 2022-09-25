@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from "./home/home.component";
-import {WalletListComponent} from "./wallet-list/wallet-list.component";
-import {TransactionListComponent} from "./transaction-list/transaction-list.component";
-import {CategoryListComponent} from "./category-list/category-list.component";
+import {HomeComponent} from './home/home.component';
+import {WalletListComponent} from './wallet-list/wallet-list.component';
+import {TransactionListComponent} from './transaction-list/transaction-list.component';
+import {CategoryListComponent} from './category-list/category-list.component';
 
 
 const routes: Routes = [
@@ -15,11 +15,10 @@ const routes: Routes = [
       {
         path: 'wallets',
         component: WalletListComponent
-      },{
+      }, {
         path: 'categories',
         component: CategoryListComponent
-      },
-      {
+      }, {
         path: '',
         component: TransactionListComponent
       }

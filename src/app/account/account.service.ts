@@ -27,11 +27,11 @@ export class AccountService {
   }
 
   register(signUp: SignUp): Observable<User> {
-    return this.http.post<User>(`${API_URL}/api/register`, signUp);
+    return this.http.post<User>(`${API_URL}/register`, signUp);
   }
 
-  login(loginRequest: LoginRequest): Observable<LoginResponse>{
-    return this.http.post<LoginResponse>(`${API_URL}/api/login`, loginRequest).pipe(map(user => {
+  login(loginRequest: LoginRequest): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${API_URL}/login`, loginRequest).pipe(map(user => {
       localStorage.setItem('user', JSON.stringify(user));
       this.currentUserSubject.next(user);
       return user;
