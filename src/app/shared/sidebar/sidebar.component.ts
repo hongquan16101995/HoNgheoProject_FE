@@ -3,6 +3,7 @@ import {AccountService} from '../../account/account.service';
 import {Router} from '@angular/router';
 import {SweetalertService} from '../sweetalert/sweetalert.service';
 import {ICON_SUCCESS} from '../sweetalert/alert-const';
+import {LoginResponse} from '../../account/login-response';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,6 +11,7 @@ import {ICON_SUCCESS} from '../sweetalert/alert-const';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  user?: LoginResponse;
 
   constructor(private accountService: AccountService,
               private router: Router,
@@ -17,12 +19,13 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/login').then(() => {
-      this.sweetalertService.showNotification(ICON_SUCCESS, 'Thành công!', 'Đăng xuất thành công!')
+      this.sweetalertService.showNotification(ICON_SUCCESS, 'Thành công!', 'Đăng xuất thành công!');
     });
   }
 }
