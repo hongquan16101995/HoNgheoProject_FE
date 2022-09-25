@@ -17,7 +17,11 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('', [Validators.required,
       Validators.minLength(6), Validators.maxLength(20)]),
     confirmPassword: new FormControl('', [Validators.required,
-      Validators.minLength(6), Validators.maxLength(20)])
+      Validators.minLength(6), Validators.maxLength(20)]),
+    phone: new FormControl('', [Validators.required,
+      Validators.minLength(10), Validators.maxLength(10)]),
+    email: new FormControl('', [Validators.required, Validators.email,
+      Validators.minLength(6), Validators.maxLength(50)]),
   });
 
   constructor(private accountService: AccountService,
@@ -35,6 +39,12 @@ export class RegisterComponent implements OnInit {
 
   get confirmPassword() {
     return this.signUpForm.get('confirmPassword');
+  }
+  get phone() {
+    return this.signUpForm.get('phone');
+  }
+  get email() {
+    return this.signUpForm.get('email');
   }
 
   ngOnInit() {
