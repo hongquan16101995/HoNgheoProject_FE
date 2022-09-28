@@ -33,8 +33,8 @@
                                   class="avatar avatar-sm mr-5"/>{{c.name}}</a>
                 </td>
                 <td>{{c.description}}</td>
-                <td><span class="label label-info" *ngIf="c.status == 1">Active</span>
-                  <span class="label label-danger" *ngIf="c.status == 0">Block</span></td>
+                <td><span class="label label-info" *ngIf="c.status == 0" (click)="updateActive(c.id, 1)">Active</span>
+                  <span class="label label-danger" *ngIf="c.status == 1" (click)="updateActive(c.id, 0)">Block</span></td>
                 <td style="text-align: right">
                   <button type="button" class="btn btn-sm btn-danger-outline" data-toggle="tooltip"
                           (click)="displayConfirm(c.id)" data-original-title="Delete"><i class="ti-trash"

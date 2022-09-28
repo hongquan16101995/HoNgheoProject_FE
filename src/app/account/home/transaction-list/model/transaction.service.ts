@@ -29,4 +29,7 @@ export class TransactionService {
   delete(id?: number): Observable<any> {
     return this.httpClient.delete<any>(`${API_URL}/transactions/${id}`);
   }
+  searchByDate(search?: Search): Observable<Transaction[]> {
+    return this.httpClient.post<Transaction[]>(`${API_URL}/transactions/search`, search);
+  }
 }

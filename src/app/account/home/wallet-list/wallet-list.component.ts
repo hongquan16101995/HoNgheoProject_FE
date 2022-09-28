@@ -59,9 +59,15 @@ export class WalletListComponent implements OnInit {
       icon: 'demo.jpg',
       name: this.formWallet.value.name,
       money: this.formWallet.value.money,
-      status: 1
+      status: this.walletUpdate.status
     };
     this.walletService.update(this.updateId, wallet).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+
+  updateActive(id: number, status: number) {
+    this.walletService.updateStatus(id, status).subscribe(() => {
       this.ngOnInit();
     });
   }

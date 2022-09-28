@@ -56,9 +56,15 @@ export class CategoryListComponent implements OnInit {
     const description = {
       name: this.formCategory.value.name,
       description: this.formCategory.value.description,
-      status: 1
+      status: this.categoryUpdate.status
     };
     this.categoryService.update(this.updateId, description).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+
+  updateActive(id: number, status: number) {
+    this.categoryService.updateStatus(id, status).subscribe(() => {
       this.ngOnInit();
     });
   }
