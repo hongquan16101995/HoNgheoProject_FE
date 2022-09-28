@@ -99,6 +99,9 @@
       <div class="box box-solid bg-black">
         <div class="box-header with-border">
           <h4 class="box-title">Giao dịch</h4>
+          <button style="margin-left: 10px" type="button" class="btn btn-sm btn-info-outline" data-toggle="modal"
+                  data-target="#date-form" data-original-title="ByDate">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true">Tìm kiếm theo ngày</i></button>
           <ul class="box-controls pull-right">
             <li><a class="box-btn-close" href="#"></a></li>
             <li><a class="box-btn-slide" href="#"></a></li>
@@ -266,6 +269,36 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-info" data-dismiss="modal" (click)="update()">Lưu</button>
+        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--date-form-->
+<div id="date-form" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">Tìm kiếm</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-element" [formGroup]="dateForm">
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="datetime-local" class="form-control" formControlName="start" placeholder="Ngày bắt đầu">
+            </div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="datetime-local" class="form-control" formControlName="end" placeholder="Ngày kết thúc"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal" (click)="searchByDate()">Search</button>
         <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
       </div>
     </div>

@@ -28,6 +28,10 @@ export class WalletService {
   update(id?: number, wallet?: Wallet): Observable<Wallet> {
     return this.httpClient.put<Wallet>(`${API_URL}/wallets/${id}`, wallet);
   }
+
+  updateStatus(id: number, status: number): Observable<Wallet> {
+    return this.httpClient.get<Wallet>(`${API_URL}/wallets/${id}/${status}`);
+  }
   delete(id?: number): Observable<any> {
     return this.httpClient.delete<any>(`${API_URL}/wallets/${id}`);
   }

@@ -16,6 +16,7 @@ export class TransactionListComponent implements OnInit {
   wallets: Wallet[] = [];
   transactionUpdate: Transaction;
   formTransaction: FormGroup;
+  dateForm: FormGroup
   updateId: number;
 
   constructor(private transactionService: TransactionService,
@@ -31,6 +32,10 @@ export class TransactionListComponent implements OnInit {
       description: [''],
       category: [''],
       wallet: ['']
+    });
+    this.dateForm = this.formGroup.group({
+      start: [''],
+      end: ['']
     });
     this.transactionService.findAll().subscribe(data => {
       this.transactions = data;
@@ -86,6 +91,16 @@ export class TransactionListComponent implements OnInit {
     };
     this.transactionService.update(this.updateId, transaction).subscribe(() => {
       this.ngOnInit();
+    });
+  }
+
+  searchByDate() {
+    const search = {
+      start: this.dateForm.value.start,
+      end: this.dateForm.value.end
+    };
+    this.transactionService.searchByDate(search).subscribe(data => {
+      this.transactions = data;
     });
   }
 }
