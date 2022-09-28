@@ -16,7 +16,7 @@ export class TransactionListComponent implements OnInit {
   wallets: Wallet[] = [];
   transactionUpdate: Transaction;
   formTransaction: FormGroup;
-  dateForm: FormGroup
+  dateForm: FormGroup;
   updateId: number;
 
   constructor(private transactionService: TransactionService,
