@@ -1,0 +1,53 @@
+<aside class="main-sidebar">
+  <!-- sidebar -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="ulogo">
+        <a href="index.html">
+          <!-- logo for regular state and mobile devices -->
+          <span><b>HỘ NGHÈO </b>PROJECT</span>
+        </a>
+      </div>
+      <div class="image">
+        <img src="assets/images/avatar/demo.jpg" class="rounded-circle" alt="User Image">
+      </div>
+      <div class="info">
+        <p>{{user.name}}</p>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i class="ion ion-gear-b"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ion ion-android-mail"></i></a>
+        <a href="#" role="button" (click)="logout()" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ion ion-power"></i></a>
+      </div>
+    </div>
+    <!-- sidebar menu -->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="nav-devider"></li>
+      <li class="header nav-small-cap"></li>
+      <li >
+        <a routerLink="/">
+          <i class="icon-home"></i> <span>Giao dịch</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/wallets">
+          <i class="icon-wallet"></i> <span>Ví</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/categories">
+          <i class="icon-list"></i> <span>Loại thu chi</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+        </a>
+      </li>
+
+    </ul>
+  </section>
+</aside>

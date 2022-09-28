@@ -1,0 +1,126 @@
+<section class="content-header">
+  <h1>
+    Loại thu chi
+  </h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+    <li class="breadcrumb-item active">Loại thu chi</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+
+        <div class="box-body">
+          <div class="table-responsive">
+            <table id="employeelist" class="table table-hover no-wrap" data-page-size="10">
+              <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Mô tả</th>
+                <th>Trạng thái</th>
+                <th colspan="2" style="text-align: center">Thêm</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let c of categories; let i = index;">
+                <td>{{i + 1}}</td>
+                <td>
+                  <a href=""><img src="../../../../assets/images/avatar/1.jpg" alt="user"
+                                  class="avatar avatar-sm mr-5"/>{{c.name}}</a>
+                </td>
+                <td>{{c.description}}</td>
+                <td><span class="label label-info" *ngIf="c.status == 1">Active</span>
+                  <span class="label label-danger" *ngIf="c.status == 0">Block</span></td>
+                <td style="text-align: right">
+                  <button type="button" class="btn btn-sm btn-danger-outline" data-toggle="tooltip"
+                          (click)="displayConfirm(c.id)" data-original-title="Delete"><i class="ti-trash"
+                                                                                         aria-hidden="true"></i>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-info-outline" data-toggle="modal" data-target="#update-wallet"
+                          (click)="displayUpdate(c.id)" data-original-title="Edit"><i class="ti-pencil" aria-hidden="true"></i></button>
+                </td>
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <td colspan="2">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-wallet">Thêm mới
+                  </button>
+                </td>
+                <td colspan="7">
+                  <div class="text-right">
+                    <ul class="pagination"></ul>
+                  </div>
+                </td>
+              </tr>
+              </tfoot>
+            </table>
+            <div id="add-wallet" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+                 aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel2">Thêm loại</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-horizontal form-element" [formGroup]="formCategory">
+                      <div class="col-md-12 m-b-20">
+                        <div class="form-group">
+                          <input type="text" class="form-control" formControlName="name" placeholder="Tên loại thu chi"></div>
+                      </div>
+                      <div class="col-md-12 m-b-20">
+                        <div class="form-group">
+                          <input type="text" class="form-control" formControlName="description" placeholder="Mô tả">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="create()">Lưu</button>
+                    <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--          update form-->
+            <div id="update-wallet" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+                 aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel2">Chỉnh sửa loại</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-horizontal form-element" [formGroup]="formCategory">
+                      <div class="col-md-12 m-b-20">
+                        <div class="form-group">
+                          <input type="text" class="form-control" formControlName="name" placeholder="Tên loại thu chi"></div>
+                      </div>
+                      <div class="col-md-12 m-b-20">
+                        <div class="form-group">
+                          <input type="text" class="form-control" formControlName="description" placeholder="Mô tả">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="update()">Lưu</button>
+                    <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

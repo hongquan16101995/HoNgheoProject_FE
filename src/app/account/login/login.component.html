@@ -1,0 +1,47 @@
+<div class="login-box">
+  <div class="login-logo">
+    <a routerLink="/">Hộ Nghèo</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Đăng nhập để bắt đầu phiên làm việc</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-element">
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Tên đăng nhập" formControlName="username">
+        <span class="ion ion-person form-control-feedback "></span>
+        <ng-container *ngIf="username.invalid && (username.dirty || username.touched)">
+          <p class="text-danger" *ngIf="username.errors?.required">Tên đăng nhập không được để trống!</p>
+        </ng-container>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Mật khẩu" formControlName="password">
+        <span class="ion ion-locked form-control-feedback "></span>
+        <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+          <p class="text-danger" *ngIf="password.errors?.required">Mật khẩu không được để trống!</p>
+        </ng-container>
+      </div>
+      <div class="row">
+        <div class="col-6">
+        </div>
+        <!-- /.col -->
+        <div class="col-6">
+          <div class="fog-pwd">
+            <a href="javascript:void(0)"><i class="ion ion-locked"></i> Quên mật khẩu?</a><br>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-info btn-block margin-top-10">ĐĂNG NHẬP</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <div class="margin-top-30 text-center">
+      <p>Bạn chưa có tài khoản? <a routerLink="/register" class="text-info m-l-5">Đăng ký</a></p>
+    </div>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>

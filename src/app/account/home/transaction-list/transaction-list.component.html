@@ -1,0 +1,273 @@
+<section class="content">
+
+  <div class="row">
+    <div class="col-lg-4 col-12">
+      <div class="box box-solid bg-black">
+        <div class="box-header with-border">
+          <h4 class="box-title">Danh mục chi tiêu</h4>
+          <ul class="box-controls pull-right">
+            <li><a class="box-btn-close" href="#"></a></li>
+            <li><a class="box-btn-slide" href="#"></a></li>
+            <li><a class="box-btn-fullscreen" href="#"></a></li>
+          </ul>
+        </div>
+        <div class="box-body p-0">
+          <div class="media-list media-list-hover media-list-divided">
+            <a class="media media-single p-10" href="#">
+              <span class="avatar avatar-sm bg-primary">48</span>
+              <span class="title">Clients to Bill</span>
+            </a>
+
+            <a class="media media-single p-10" href="#">
+              <span class="avatar avatar-sm bg-success">16</span>
+              <span class="title">Expense Reports to Approve</span>
+            </a>
+
+            <a class="media media-single p-10" href="#">
+              <span class="avatar avatar-sm bg-danger">39</span>
+              <span class="title">Time records to approve</span>
+            </a>
+
+            <a class="media media-single p-10" href="#">
+              <span class="avatar avatar-sm bg-yellow">01</span>
+              <span class="title">Purchase Request to approve</span>
+            </a>
+
+            <a class="media media-single p-10" href="#">
+              <span class="avatar avatar-sm bg-warning">129</span>
+              <span class="title">Opportunities to close</span>
+            </a>
+
+            <a class="media media-single p-10" href="#">
+              <span class="avatar avatar-sm bg-warning">36</span>
+              <span class="title">Purchase Order to Bill</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="box box-solid bg-black">
+        <div class="box-header with-border">
+          <h4 class="box-title">Tình hình thu chi</h4>
+          <ul class="box-controls pull-right">
+            <li><a class="box-btn-close" href="#"></a></li>
+            <li><a class="box-btn-slide" href="#"></a></li>
+            <li><a class="box-btn-fullscreen" href="#"></a></li>
+          </ul>
+        </div>
+        <div class="box-body">
+          <div class="chart">
+            <div id="chartdiv31" style="height: 300px;"></div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-lg-8 col-12">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="box box-body pull-up bg-warning bg-deathstar-white">
+            <div class="flexbox">
+              <span class="fa fa-money font-size-40"></span>
+              <span class="font-weight-200 font-size-26">$250.00</span>
+            </div>
+            <div class="text-right">Số dư</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box box-body pull-up bg-danger bg-deathstar-white">
+            <div class="flexbox">
+              <span class="fa fa-clock-o font-size-40"></span>
+              <span class="font-weight-200 font-size-26">592.50</span>
+            </div>
+            <div class="text-right">Tổng thu</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box box-body pull-up bg-success bg-deathstar-white">
+            <div class="flexbox">
+              <span class="fa fa-trophy font-size-40"></span>
+              <span class="font-weight-200 font-size-26">48.00</span>
+            </div>
+            <div class="text-right">Tổng chi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box box-solid bg-black">
+        <div class="box-header with-border">
+          <h4 class="box-title">Giao dịch</h4>
+          <ul class="box-controls pull-right">
+            <li><a class="box-btn-close" href="#"></a></li>
+            <li><a class="box-btn-slide" href="#"></a></li>
+            <li><a class="box-btn-fullscreen" href="#"></a></li>
+          </ul>
+        </div>
+        <div class="box-body">
+
+          <!--          <ul class="flexbox flex-justified text-center my-20">-->
+          <!--            <li class="br-1">-->
+          <!--              <div class="font-size-18">Chi tiết giao dịch</div>-->
+          <!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 7.1%</h2>-->
+          <!--            </li>-->
+
+          <!--            <li class="br-1">-->
+          <!--              <div class="font-size-18">Loại giao dịch</div>-->
+          <!--              <h2 class="text-danger"><i class="fa fa-caret-down"></i> -14.1%</h2>-->
+          <!--            </li>-->
+
+          <!--            <li class="br-1">-->
+          <!--              <div class="font-size-18">Receivablies</div>-->
+          <!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 2.8%</h2>-->
+          <!--            </li>-->
+
+          <!--            <li>-->
+          <!--              <div class="font-size-18">Project Billing</div>-->
+          <!--              <h2 class="text-success"><i class="fa fa-caret-up"></i> 97.1%</h2>-->
+          <!--            </li>-->
+          <!--          </ul>-->
+
+          <div class="table-responsive">
+            <table class="table table-hover no-wrap">
+              <thead>
+              <tr class="">
+                <th>Chi tiết giao dịch</th>
+                <th>Loại thu chi</th>
+                <th>Số tiền</th>
+                <th>Thời gian</th>
+                <th colspan="2" style="text-align: center">Khác</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let t of transactions;">
+                <td>{{t.description}}</td>
+                <td>
+                  <span *ngFor="let c of t.categories;">{{c.name}} </span>
+                </td>
+                <td>{{t.total}}</td>
+                <td>{{t.time}}</td>
+                <td style="text-align: center">
+                  <button type="button" class="btn btn-sm btn-danger-outline" data-toggle="tooltip"
+                          (click)="displayConfirm(t.id)" data-original-title="Delete">
+                    <i class="ti-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
+                <td style="text-align: center">
+                  <button type="button" class="btn btn-sm btn-info-outline" data-toggle="modal"
+                          data-target="#update-wallet"
+                          (click)="displayUpdate(t.id)" data-original-title="Edit">
+                    <i class="ti-pencil" aria-hidden="true"></i></button>
+                </td>
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <td colspan="2">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-wallet">Thêm mới
+                  </button>
+                </td>
+                <td colspan="7">
+                  <div class="text-right">
+                    <ul class="pagination"></ul>
+                  </div>
+                </td>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+
+    </div>
+  </div>
+</section>
+<div id="add-wallet" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">Thêm giao dịch</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-element" [formGroup]="formTransaction">
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="description" placeholder="Mô tả"></div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="total" placeholder="Số tiền"></div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <select class="form-control" formControlName="category">
+                <option value="">-- Loại giao dịch --</option>
+                <option *ngFor="let c of categories" value="{{c.id}}">{{c.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <select class="form-control" formControlName="wallet">
+                <option value="">-- Ví tiền --</option>
+                <option *ngFor="let w of wallets" value="{{w.id}}">{{w.name}}</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal" (click)="create()">Lưu</button>
+        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--update form-->
+<div id="update-wallet" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">Chỉnh sửa giao dịch</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-element" [formGroup]="formTransaction">
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="description" placeholder="Mô tả"></div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="total" placeholder="Số tiền"></div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <select class="form-control" formControlName="category">
+                <option value="">-- Loại giao dịch --</option>
+                <option *ngFor="let c of categories" value="{{c.id}}">{{c.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 m-b-20">
+            <div class="form-group">
+              <select class="form-control" formControlName="wallet">
+                <option value="">-- Ví tiền --</option>
+                <option *ngFor="let w of wallets" value="{{w.id}}">{{w.name}}</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal" (click)="update()">Lưu</button>
+        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="register-box">
+
+  <div class="register-box-body">
+    <div class="register-logo">
+      <a routerLink="/">Hộ Nghèo</a>
+    </div>
+    <p class="login-box-msg">Đắng ký thành viên mới</p>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="register()" class="form-element">
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Email" formControlName="email">
+        <span class="ion ion-email form-control-feedback "></span>
+        <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+          <p class="text-danger" *ngIf="email.errors?.required">Email không được để trống!</p>
+          <p class="text-danger" *ngIf="email.errors?.minlength">Email phải có ít nhất 6 ký tự</p>
+          <p class="text-danger" *ngIf="email.errors?.maxlength">Email tối đa 50 ký tự</p>
+          <p class="text-danger" *ngIf="email.errors?.email">Email sai định dạng</p>
+        </ng-container>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Tên đăng nhập" formControlName="username">
+        <span class="ion ion-person form-control-feedback "></span>
+        <ng-container *ngIf="username.invalid && (username.dirty || username.touched)">
+          <p class="text-danger" *ngIf="username.errors?.required">Tên đăng nhập không được để trống!</p>
+          <p class="text-danger" *ngIf="username.errors?.minlength">Tên đăng nhập phải có ít nhất 6 ký tự</p>
+          <p class="text-danger" *ngIf="username.errors?.maxlength">Tên đăng nhập tối đa 20 ký tự</p>
+        </ng-container>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Mật khẩu" formControlName="password">
+        <span class="ion ion-locked form-control-feedback "></span>
+        <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+          <p class="text-danger" *ngIf="password.errors?.required">Mật khẩu không được để trống!</p>
+          <p class="text-danger" *ngIf="password.errors?.minlength">Mật khẩu phải có ít nhất 6 ký tự</p>
+          <p class="text-danger" *ngIf="password.errors?.maxlength">Mật khẩu tối đa 20 ký tự</p>
+        </ng-container>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Nhập lại mật khẩu"
+               (ngModelChange)="comparePassword()"
+               formControlName="confirmPassword">
+        <span class="ion ion-locked form-control-feedback "></span>
+        <ng-container *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+          <p class="text-danger" *ngIf="confirmPassword.errors?.required">Mật khẩu nhập lại không được để trống!</p>
+          <p class="text-danger" *ngIf="confirmPassword.errors?.minlength">Mật khẩu nhập lại phải có ít nhất 6 ký tự</p>
+          <p class="text-danger" *ngIf="confirmPassword.errors?.maxlength">Mật khẩu nhập lại tối đa 20 ký tự</p>
+          <p class="text-danger" *ngIf="confirmPassword.errors?.confirmPassword">Mật khẩu nhập lại không đúng</p>
+        </ng-container>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+        <span class="ion ion-person form-control-feedback "></span>
+        <ng-container *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+          <p class="text-danger" *ngIf="phone.errors?.required">Số điện thoại không được để trống!</p>
+          <p class="text-danger" *ngIf="phone.errors?.minlength">Số điện thoại phải có đúng 10 ký tự</p>
+          <p class="text-danger" *ngIf="phone.errors?.maxlength">Số điện thoại phải có đúng 10 ký tự</p>
+        </ng-container>
+      </div>
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-12 text-center">
+          <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-info btn-block margin-top-10">ĐĂNG KÝ
+          </button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+
+    <div class="margin-top-20 text-center">
+      <p>Bạn đã có tài khoản?<a routerLink="/login" class="text-info m-l-5"> Đăng nhập</a></p>
+    </div>
+
+  </div>
+  <!-- /.form-box -->
+</div>
